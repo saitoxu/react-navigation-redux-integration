@@ -14,8 +14,12 @@ $ react-native run-ios
 
 ## Author
 
-Yosuke Saito - [saitoxu](https://github.com/saitoxu)
+* **Yosuke Saito** - [saitoxu](https://github.com/saitoxu)
 
 ## License
 
 [MIT](LICENSE.txt)
+
+## Acknowledgements
+
+* [Redux example](https://github.com/react-community/react-navigation/tree/master/examples/ReduxExample)
