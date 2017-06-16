@@ -28,7 +28,8 @@ const ProfileScreen = () => (
 )
 
 ProfileScreen.navigationOptions = {
-  title: 'Profile'
+  title: 'Profile',
+  drawerLabel: 'Profile'
 }
 
 export default ProfileScreen

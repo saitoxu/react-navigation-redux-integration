@@ -1,5 +1,6 @@
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import { connect } from 'react-redux'
+import { StyleSheet, View, Button } from 'react-native'
 import LoginStatusMessage from './LoginStatusMessage'
 import AuthButton from './AuthButton'
 
@@ -19,8 +20,12 @@ const MainScreen = () => (
   </View>
 )
 
+const mapStateToProps = state => null
+
 MainScreen.navigationOptions = {
-  title: 'Home Screen'
+  title: 'Home Screen',
+  drawerLabel: 'Home'
 }
 
+// export default connect(mapStateToProps)(MainScreen)
 export default MainScreen

@@ -25,9 +25,6 @@ const LoginScreen = ({ navigation }) => (
     <Text style={styles.welcome}>
       Screen A
     </Text>
-    <Text style={styles.instructions}>
-      This is great
-    </Text>
     <Button
       onPress={() => navigation.dispatch({ type: 'Login' })}
       title="Log in"

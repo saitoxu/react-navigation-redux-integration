@@ -1,15 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { addNavigationHelpers, StackNavigator } from 'react-navigation'
-
-import LoginScreen from '../components/LoginScreen'
 import MainScreen from '../components/MainScreen'
-import ProfileScreen from '../components/ProfileScreen'
+import LoginScreen from '../components/LoginScreen'
+import MyDrawerNavigator from './DrawerNavigator'
 
 export const AppNavigator = StackNavigator({
   Login: { screen: LoginScreen },
-  Main: { screen: MainScreen },
-  Profile: { screen: ProfileScreen }
+  Main: { screen: MyDrawerNavigator }
+  // Main: { screen: MainScreen }
 })
 
 const AppWithNavigationState = ({ dispatch, nav }) => (

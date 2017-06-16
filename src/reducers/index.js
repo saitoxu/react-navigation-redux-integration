@@ -3,9 +3,26 @@ import { NavigationActions } from 'react-navigation'
 import { AppNavigator } from '../navigators/AppNavigator'
 
 const initialNavState = {
-  index: 1,
+  index: 0,
   routes: [
-    { key: 'InitA', routeName: 'Main' },
+    {
+      key: 'InitA',
+      routeName: 'Main',
+      index: 0,
+      routes: [
+        // { key: 'InitC', routeName: 'Main' },
+        // { key: 'InitD', routeName: 'Profile' },
+        {
+          key: 'InitE',
+          routeName: 'DrawerClose',
+          index: 0,
+          routes: [
+            { key: 'InitC', routeName: 'Profile' }
+          ]
+        },
+        { key: 'InitF', routeName: 'DrawerOpen' }
+      ]
+    },
     { key: 'InitB', routeName: 'Login' }
   ]
 }
