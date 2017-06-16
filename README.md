@@ -18,4 +18,4 @@ Yosuke Saito - [saitoxu](https://github.com/saitoxu)
 
 ## License
 
-MIT
+[MIT](LICENSE.txt)
