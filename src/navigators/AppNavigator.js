@@ -1,11 +1,18 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { addNavigationHelpers, StackNavigator } from 'react-navigation'
+import SplashScreen from '../components/SplashScreen'
 import MainScreen from '../components/MainScreen'
 import LoginScreen from '../components/LoginScreen'
 import MyDrawerNavigator from './DrawerNavigator'
 
 export const AppNavigator = StackNavigator({
+  Splash: {
+    screen: SplashScreen,
+    navigationOptions: {
+      header: null
+    }
+  },
   Login: {
     screen: LoginScreen,
     navigationOptions: {

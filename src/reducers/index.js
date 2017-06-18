@@ -5,6 +5,7 @@ import { AppNavigator } from '../navigators/AppNavigator'
 const initialNavState = {
   index: 0,
   routes: [
+    { key: 'Splash', routeName: 'Splash' },
     { key: 'Login', routeName: 'Login' },
     {
       key: 'Main',

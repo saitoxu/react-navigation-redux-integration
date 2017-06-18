@@ -1,9 +1,6 @@
 import React from 'react'
-import {
-  StyleSheet,
-  Text,
-  View
-} from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
+import { Container, Header, Left, Body, Title, Right, Button, Content, Icon } from 'native-base'
 
 const styles = StyleSheet.create({
   container: {
@@ -19,16 +16,39 @@ const styles = StyleSheet.create({
   }
 })
 
-const ProfileScreen = () => (
-  <View style={styles.container}>
-    <Text style={styles.welcome}>
-      Profile Screen
-    </Text>
-  </View>
-)
+class ProfileScreen extends React.Component {
+  constructor(props) {
+    super(props)
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick() {
+    this.props.navigation.navigate('DrawerOpen')
+  }
+
+  render() {
+    return (
+      <Container>
+        <Header>
+          <Left>
+            <Button transparent onPress={this.handleClick}>
+              <Icon name='menu' />
+            </Button>
+          </Left>
+          <Body>
+            <Title>Profile</Title>
+          </Body>
+          <Right />
+        </Header>
+        <Content>
+          <Text>Profile</Text>
+        </Content>
+      </Container>
+    )
+  }
+}
 
 ProfileScreen.navigationOptions = {
-  title: 'Profile',
   drawerLabel: 'Profile'
 }
 
