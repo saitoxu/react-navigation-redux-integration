@@ -5,25 +5,24 @@ import { AppNavigator } from '../navigators/AppNavigator'
 const initialNavState = {
   index: 0,
   routes: [
+    { key: 'Login', routeName: 'Login' },
     {
-      key: 'InitA',
+      key: 'Main',
       routeName: 'Main',
       index: 0,
-      routes: [
-        // { key: 'InitC', routeName: 'Main' },
-        // { key: 'InitD', routeName: 'Profile' },
-        {
-          key: 'InitE',
-          routeName: 'DrawerClose',
-          index: 0,
-          routes: [
-            { key: 'InitC', routeName: 'Profile' }
-          ]
-        },
-        { key: 'InitF', routeName: 'DrawerOpen' }
-      ]
-    },
-    { key: 'InitB', routeName: 'Login' }
+      routes: [{
+        key: 'Close',
+        routeName: 'DrawerClose',
+        index: 0,
+        routes: [
+          { key: 'Home', routeName: 'Home' },
+          { key: 'Profile', routeName: 'Profile' }
+        ]
+      }, {
+        key: 'Open',
+        routeName: 'DrawerOpen'
+      }]
+    }
   ]
 }
 
@@ -32,9 +31,26 @@ const initialAuthState = { isLoggedIn: false }
 function nav(state = initialNavState, action) {
   switch (action.type) {
     case 'Login':
-      return AppNavigator.router.getStateForAction(NavigationActions.back(), state)
+      // return AppNavigator.router.getStateForAction(NavigationActions.navigate({ routeName: 'Main' }), state)
+      return AppNavigator.router.getStateForAction(
+        NavigationActions.reset({
+          index: 0,
+          actions: [
+            NavigationActions.navigate({ routeName: 'Main' })
+          ]
+        }),
+        state
+      )
     case 'Logout':
-      return AppNavigator.router.getStateForAction(NavigationActions.navigate({ routeName: 'Login' }), state)
+      return AppNavigator.router.getStateForAction(
+        NavigationActions.reset({
+          index: 0,
+          actions: [
+            NavigationActions.navigate({ routeName: 'Login' })
+          ]
+        }),
+        state
+      )
     default:
       return AppNavigator.router.getStateForAction(action, state)
   }

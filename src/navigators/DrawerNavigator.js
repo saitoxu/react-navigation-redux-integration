@@ -1,12 +1,20 @@
 import React from 'react'
+import { View, ScrollView } from 'react-native'
 import { connect } from 'react-redux'
-import { addNavigationHelpers, DrawerNavigator } from 'react-navigation'
-import MainScreen from '../components/MainScreen'
+import { addNavigationHelpers, DrawerNavigator, DrawerItems } from 'react-navigation'
+import HomeScreen from '../components/HomeScreen'
 import ProfileScreen from '../components/ProfileScreen'
 
 export const MyDrawerNavigator = DrawerNavigator({
-  // Main: { screen: MainScreen },
+  Home: { screen: HomeScreen },
   Profile: { screen: ProfileScreen }
+}, {
+  drawerPosition: 'left',
+  contentComponent: props => (
+    <View style={{ flex: 1, backgroundColor: 'white' }}>
+      <ScrollView><DrawerItems {...props} /></ScrollView>
+    </View>
+  )
 })
 
 const DrawerWithNavigationState = ({ dispatch, nav }) => (

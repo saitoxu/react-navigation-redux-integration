@@ -20,11 +20,10 @@ const MainScreen = () => (
   </View>
 )
 
-const mapStateToProps = state => null
+// const mapStateToProps = state => null
 
 MainScreen.navigationOptions = {
-  title: 'Home Screen',
-  drawerLabel: 'Home'
+  title: 'Main Screen'
 }
 
 // export default connect(mapStateToProps)(MainScreen)

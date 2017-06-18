@@ -6,8 +6,18 @@ import LoginScreen from '../components/LoginScreen'
 import MyDrawerNavigator from './DrawerNavigator'
 
 export const AppNavigator = StackNavigator({
-  Login: { screen: LoginScreen },
-  Main: { screen: MyDrawerNavigator }
+  Login: {
+    screen: LoginScreen,
+    navigationOptions: {
+      header: null
+    }
+  },
+  Main: {
+    screen: MyDrawerNavigator,
+    navigationOptions: {
+      header: null
+    }
+  }
   // Main: { screen: MainScreen }
 })
 
