@@ -1,5 +1,6 @@
-import { combineReducers } from 'redux';
+import { compose, combineReducers } from 'redux';
 import { NavigationActions } from 'react-navigation'
+import { mergePersistedState } from 'redux-localstorage'
 import { AppNavigator } from '../navigators/AppNavigator'
 
 const initialNavState = {
@@ -68,9 +69,12 @@ function auth(state = initialAuthState, action) {
   }
 }
 
-const AppReducer = combineReducers({
+const reducers = combineReducers({
   nav,
   auth
 })
+const AppReducer = compose(
+  mergePersistedState()
+)(reducers)
 
 export default AppReducer

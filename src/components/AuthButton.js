@@ -22,7 +22,11 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch({ type: 'Logout' }),
-  login: () => dispatch({ type: 'Login' })
+  login: () => {
+    setTimeout((dispatch) => {
+      dispatch({ type: 'Login' })
+    }, 1000, dispatch)
+  }
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AuthButton)

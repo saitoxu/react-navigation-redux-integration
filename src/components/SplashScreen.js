@@ -5,17 +5,10 @@ import { NavigationActions } from 'react-navigation'
 import { Container, Header, Left, Body, Title, Right, Button, Content, Icon } from 'native-base'
 
 class SplashScreen extends React.Component {
-  constructor(props) {
-    super(props)
-    AsyncStorage.getItem('auth', (error, result) => {
-      console.log(result)
-    })
-  }
-
-  componentDidMount() {
-    const { auth } = this.props
+  componentWillReceiveProps(nextProps) {
+    const { auth } = nextProps
     const { isLoggedIn } = auth
-    console.log(`isLoggedIn = ${isLoggedIn}`)
+    // console.log(`isLoggedIn = ${isLoggedIn}`)
     let routeName = 'Login'
     if (isLoggedIn) {
       routeName = 'Main'
@@ -26,9 +19,7 @@ class SplashScreen extends React.Component {
         NavigationActions.navigate({ routeName })
       ]
     })
-    setTimeout((splash, action) => {
-      splash.props.navigation.dispatch(action)
-    }, 1000, this, action)
+    this.props.navigation.dispatch(action)
   }
 
   render() {

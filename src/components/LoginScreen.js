@@ -1,43 +1,25 @@
 import React, { PropTypes } from 'react'
-import {
-  Button,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native'
+import { Container, Content } from 'native-base'
+import AuthButton from './AuthButton'
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+class LoginScreen extends React.Component {
+  constructor(props) {
+    super(props)
   }
-})
 
-const LoginScreen = ({ navigation }) => (
-  <View style={styles.container}>
-    <Text style={styles.welcome}>
-      Screen A
-    </Text>
-    <Button
-      onPress={() => navigation.dispatch({ type: 'Login' })}
-      title="Log in"
-    />
-  </View>
-)
+  render() {
+    return (
+      <Container>
+        <Content>
+          <AuthButton />
+        </Content>
+      </Container>
+    )
+  }
+}
 
 LoginScreen.propTypes = {
   navigation: PropTypes.object.isRequired
-}
-
-LoginScreen.navigationOptions = {
-  title: 'Log In'
 }
 
 export default LoginScreen
